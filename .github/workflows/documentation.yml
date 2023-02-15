@@ -14,4 +14,4 @@ jobs:
         env:
           SCRIPTING_LICENSE_KEY: ${{secrets.SCRIPTING_LICENSE_KEY}}
         with:
-          schemaFile: schemas/main.xsd
+          schemaFile: schemas/personal.xsd
