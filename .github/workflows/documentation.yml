@@ -1,10 +1,10 @@
-name: Run Documentation Script
+name: Run Documentation Script (for XSD files)
 on:
-  workflow_dispatch:
-    inputs:
-      schemaFile:
-        description: 'Schema file to generate documentation for.'
-        required: true # e.g. resources/schema.xsd
+  push:
+    branches:
+      - main
+    paths:
+      - '**.xsd'
 jobs:
   generate-doc:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
         env:
           SCRIPTING_LICENSE_KEY: ${{secrets.SCRIPTING_LICENSE_KEY}}
         with:
-          schemaFile: ${{ inputs.schemaFile }}
+          schemaFile: schemas/main.xsd
